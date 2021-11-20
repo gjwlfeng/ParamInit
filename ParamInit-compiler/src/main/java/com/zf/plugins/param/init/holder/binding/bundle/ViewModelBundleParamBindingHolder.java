@@ -30,7 +30,7 @@ public abstract class ViewModelBundleParamBindingHolder extends ViewModelParamBi
                 methodName= value;
             }
         }
-        return CONTAIN_KEY_METHOD_NAME_PREFIX + Utils.capitalize(methodName) + GET_EXTRA_METHOD_NAME_SUFFIX;
+        return CONTAIN_KEY_METHOD_NAME_PREFIX + Utils.capitalize(methodName) ;
     }
 
 

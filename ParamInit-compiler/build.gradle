@@ -15,7 +15,7 @@ dependencies {
     annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
     implementation 'com.google.auto.service:auto-service:1.0-rc6'
     compileOnly group: 'com.google.android', name: 'android', version: '4.1.1.4'
-    myImplementation group: 'com.squareup', name: 'javapoet', version: '1.13.0'
+    implementation group: 'com.squareup', name: 'javapoet', version: '1.13.0'
 }
 
 java {
@@ -30,9 +30,8 @@ archivesBaseName = artifactId
 
 def isSnapshot = true
 
-
 if (isSnapshot) {
-    def fixVersion=1
+    def fixVersion = 9
     version(version + ".${fixVersion}-SNAPSHOT")
 }
 

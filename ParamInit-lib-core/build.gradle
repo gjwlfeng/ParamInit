@@ -16,7 +16,7 @@ archivesBaseName = artifactId
 
 def isSnapshot = true
 if (isSnapshot) {
-    def fixVersion=1;
+    def fixVersion=3;
     version(version +".${fixVersion}-SNAPSHOT")
 }
 

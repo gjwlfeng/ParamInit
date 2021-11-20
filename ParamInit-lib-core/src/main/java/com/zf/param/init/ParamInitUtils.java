@@ -6,6 +6,6 @@ public class ParamInitUtils {
     }
 
     public static String getSimpleClassName(String simpleName) {
-        return simpleName.concat(Constant.CLASS_NAME_PREFIX);
+        return simpleName.concat(Constant.CLASS_NAME_SUFFIX);
     }
 }

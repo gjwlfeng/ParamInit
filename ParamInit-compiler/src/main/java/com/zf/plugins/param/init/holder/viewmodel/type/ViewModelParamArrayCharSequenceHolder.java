@@ -18,7 +18,6 @@ public class ViewModelParamArrayCharSequenceHolder extends ViewModelParamArrayHo
 
     public static class CreationHolder extends ViewModelCreationHolder<ViewModelParamArrayCharSequenceHolder> {
 
-
         public CreationHolder(AnnotationEnv annotationEnv, Element element,boolean isSupportV4, boolean isAndroidX) {
             super(annotationEnv, element,isSupportV4,isAndroidX);
         }

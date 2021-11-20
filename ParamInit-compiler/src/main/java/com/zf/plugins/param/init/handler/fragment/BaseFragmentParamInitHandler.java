@@ -52,7 +52,7 @@ public abstract class BaseFragmentParamInitHandler extends AndroidHandler<Fragme
 
     public TypeSpec.Builder createClassType() {
         return TypeSpec.classBuilder(getTargetClassName())
-                .addModifiers(Modifier.FINAL, Modifier.PUBLIC)
+                .addModifiers(Modifier.PUBLIC)
                 .addJavadoc(getClassTypeDoc());
     }
 
@@ -73,7 +73,7 @@ public abstract class BaseFragmentParamInitHandler extends AndroidHandler<Fragme
     public MethodSpec.Builder createComprehensiveInitMethod(List<FragmentParamHolder> holders) {
 
         final MethodSpec.Builder builder = MethodSpec.methodBuilder(PARAM_INIT_INIT_METHOD)
-                .addModifiers(Modifier.PUBLIC).addAnnotation(Override.class);
+                .addModifiers(Modifier.PUBLIC,Modifier.STATIC);
 
         builder.addParameter(ParameterSpec.builder(getTargetBaseClassName(), "target", Modifier.FINAL).addAnnotation(ClassNameConstant.getNonnullClassName(isAndroidX())).build())
                 .addParameter(ParameterSpec.builder(ClassNameConstant.BUNDLE, "arguments", Modifier.FINAL).addAnnotation(ClassNameConstant.getNullableClassName(isAndroidX())).build())
@@ -112,7 +112,7 @@ public abstract class BaseFragmentParamInitHandler extends AndroidHandler<Fragme
     public MethodSpec.Builder createInitMethod(List<FragmentParamHolder> holders) {
 
         final MethodSpec.Builder builder = MethodSpec.methodBuilder(PARAM_INIT_INIT_METHOD)
-                .addModifiers(Modifier.PUBLIC).addAnnotation(Override.class);
+                .addModifiers(Modifier.PUBLIC,Modifier.STATIC);
 
         String target = "target";
 
@@ -133,7 +133,7 @@ public abstract class BaseFragmentParamInitHandler extends AndroidHandler<Fragme
 
     public MethodSpec.Builder createSaveStateMethod(List<FragmentParamHolder> holders) {
         final MethodSpec.Builder builder = MethodSpec.methodBuilder(PARAM_INIT_SAVE_STATE_METHOD)
-                .addModifiers(Modifier.PUBLIC).addAnnotation(Override.class);
+                .addModifiers(Modifier.PUBLIC,Modifier.STATIC);
 
         String target = "target";
 

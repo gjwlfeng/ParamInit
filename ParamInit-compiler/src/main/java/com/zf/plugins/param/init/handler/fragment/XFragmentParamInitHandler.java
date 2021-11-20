@@ -13,8 +13,8 @@ import javax.lang.model.element.TypeElement;
 
 public class XFragmentParamInitHandler extends BaseFragmentParamInitHandler {
 
-    public XFragmentParamInitHandler(AnnotationEnv annotationEnv, TypeElement rootElement, List<? extends Element> itemElement,List<? extends Element> paramBindingElement, boolean isSupportV4, boolean isAndroidX) {
-        super(annotationEnv, rootElement, itemElement, paramBindingElement,isSupportV4, isAndroidX);
+    public XFragmentParamInitHandler(AnnotationEnv annotationEnv, TypeElement rootElement, List<? extends Element> itemElement, List<? extends Element> paramBindingElement, boolean isSupportV4, boolean isAndroidX) {
+        super(annotationEnv, rootElement, itemElement, paramBindingElement, isSupportV4, isAndroidX);
     }
 
     @Override
@@ -22,8 +22,8 @@ public class XFragmentParamInitHandler extends BaseFragmentParamInitHandler {
         return ClassNameConstant.X_FRAGMENT;
     }
 
-    public TypeSpec.Builder createClassType() {
-        return super.createClassType()
-                .addSuperinterface(ClassName.get("com.zf.param.init.fragment.x", "IXFragmentParamInit"));
-    }
+//    public TypeSpec.Builder createClassType() {
+//        return super.createClassType()
+//                .addSuperinterface(ClassName.get("com.zf.param.init.fragment.x", "IXFragmentParamInit"));
+//    }
 }

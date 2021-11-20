@@ -26,14 +26,13 @@ public class ActivityParamInit {
         return iActivityParamInit;
     }
 
-    public static void init(final Class<? extends Activity> targetClz, final Activity activity, final Bundle savedInstanceState, final Intent intent) {
+    public static void init(final Class<? extends Activity> targetClz, final Activity activity, final Intent intent, final Bundle savedInstanceState) {
         String initClassName = ParamInitUtils.getInitClassName(
                 targetClz.getPackage().getName(),
                 targetClz.getSimpleName());
         try {
-
             IActivityParamInit iActivityParamInit = getActivityParamInit(initClassName);
-            iActivityParamInit.init(activity, savedInstanceState, intent);
+            iActivityParamInit.init(activity, intent, savedInstanceState);
         } catch (ClassNotFoundException e) {
             Log.e(PARAM_INIT_TAG, e.getMessage() == null ? String.format("\"%s\" class not found!", initClassName) : e.getMessage());
         } catch (Exception e) {

@@ -105,7 +105,6 @@ public class Utils {
                 interfaces.forEach(new Consumer<TypeMirror>() {
                     @Override
                     public void accept(TypeMirror typeMirror) {
-
                         typeMirrors.add(typeMirror.toString());
                         getInterfaceClassesInternal(typeMirror, typeMirrors);
                     }
@@ -117,7 +116,5 @@ public class Utils {
                 getInterfaceClassesInternal(superclass, typeMirrors);
             }
         }
-
     }
-
 }

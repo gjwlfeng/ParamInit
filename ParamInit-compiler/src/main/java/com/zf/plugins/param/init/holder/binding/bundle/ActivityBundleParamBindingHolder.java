@@ -51,25 +51,25 @@ public abstract class ActivityBundleParamBindingHolder extends BundleParamBindin
 
     public String getPutMethodName() {
         String expectMethodName = getExpectMethodName();
-        if (expectMethodName != null && expectMethodName.trim().length() > 0) {
-            return PUT_METHOD_NAME_SUFFIX + expectMethodName;
+        if (expectMethodName == null || expectMethodName.trim().length() == 0) {
+            expectMethodName = getOriginFiledName();
         }
-        return PUT_METHOD_NAME_SUFFIX + Utils.capitalize(getOriginFiledName());
+        return PUT_METHOD_NAME_SUFFIX + Utils.capitalize(expectMethodName);
     }
 
     public String getGetMethodName() {
         String expectMethodName = getExpectMethodName();
-        if (expectMethodName != null && expectMethodName.trim().length() > 0) {
-            return GET_METHOD_NAME_SUFFIX + Utils.capitalize(expectMethodName);
+        if (expectMethodName == null || expectMethodName.trim().length() == 0) {
+            expectMethodName = getOriginFiledName();
         }
-        return GET_METHOD_NAME_SUFFIX + Utils.capitalize(getOriginFiledName());
+        return GET_METHOD_NAME_SUFFIX + Utils.capitalize(expectMethodName);
     }
 
     public String getContainKeyMethodName() {
         String expectMethodName = getExpectMethodName();
-        if (expectMethodName != null && expectMethodName.trim().length() > 0) {
-            return CONTAIN_KEY_METHOD_NAME_PREFIX + Utils.capitalize(expectMethodName);
+        if (expectMethodName == null || expectMethodName.trim().length() == 0) {
+            expectMethodName = getOriginFiledName();
         }
-        return CONTAIN_KEY_METHOD_NAME_PREFIX + Utils.capitalize(getOriginFiledName()) + GET_EXTRA_METHOD_NAME_SUFFIX;
+        return CONTAIN_KEY_METHOD_NAME_PREFIX + Utils.capitalize(expectMethodName);
     }
 }

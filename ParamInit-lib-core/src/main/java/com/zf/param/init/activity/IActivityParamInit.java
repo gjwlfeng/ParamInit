@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 public interface IActivityParamInit {
 
-    void init(Activity activity, Bundle savedInstanceState, Intent intent);
+    void init(Activity activity, Intent intent, Bundle savedInstanceState);
 
     void init(Activity activity, Bundle savedInstanceState);
 

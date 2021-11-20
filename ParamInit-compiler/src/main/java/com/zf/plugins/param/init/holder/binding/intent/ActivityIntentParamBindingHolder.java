@@ -45,31 +45,31 @@ public abstract class ActivityIntentParamBindingHolder extends IntentParamBindin
     }
 
     public String getParamFiledName() {
-        return FILED_NAME_PREFIX+getOriginFiledName().toUpperCase() + FILED_NAME_SUFFIX;
+        return FILED_NAME_PREFIX + getOriginFiledName().toUpperCase() + FILED_NAME_SUFFIX;
     }
 
     public String getPutMethodName() {
         String expectMethodName = getExpectMethodName();
-        if (expectMethodName != null && expectMethodName.trim().length() > 0) {
-            return PUT_METHOD_NAME_SUFFIX + expectMethodName;
+        if (expectMethodName == null || expectMethodName.trim().length() == 0) {
+            expectMethodName = getOriginFiledName();
         }
-        return PUT_METHOD_NAME_SUFFIX + Utils.capitalize(getOriginFiledName());
+        return PUT_METHOD_NAME_SUFFIX + Utils.capitalize(expectMethodName);
     }
 
     public String getGetMethodName() {
         String expectMethodName = getExpectMethodName();
-        if (expectMethodName != null && expectMethodName.trim().length() > 0) {
-            return GET_METHOD_NAME_SUFFIX + Utils.capitalize(expectMethodName);
+        if (expectMethodName == null || expectMethodName.trim().length() == 0) {
+            expectMethodName = getOriginFiledName();
         }
-        return GET_METHOD_NAME_SUFFIX + Utils.capitalize(getOriginFiledName());
+        return GET_METHOD_NAME_SUFFIX + Utils.capitalize(expectMethodName);
     }
 
 
     public String getHasExtraMethodName() {
         String expectMethodName = getExpectMethodName();
-        if (expectMethodName != null && expectMethodName.trim().length() > 0) {
-            return HAS_EXTRA_METHOD_NAME_SUFFIX + Utils.capitalize(expectMethodName) + GET_EXTRA_METHOD_NAME_SUFFIX;
+        if (expectMethodName == null || expectMethodName.trim().length() == 0) {
+            expectMethodName = getOriginFiledName();
         }
-        return HAS_EXTRA_METHOD_NAME_SUFFIX + Utils.capitalize(getOriginFiledName()) + GET_EXTRA_METHOD_NAME_SUFFIX;
+        return HAS_EXTRA_METHOD_NAME_SUFFIX + Utils.capitalize(expectMethodName);
     }
 }

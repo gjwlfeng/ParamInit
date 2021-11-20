@@ -44,7 +44,7 @@ import javax.lang.model.element.TypeElement;
 public class ActivityParamInitHandler extends AndroidHandler<ActivityParamHolder> {
 
     public final static String PARAM_INIT_INIT_METHOD = "init";
-    public final static String PARAM_INIT_SAVE_STATE_METHOD = "onSaveInstanceState";
+    public final static String PARAM_INIT_SAVE_STATE_METHOD = "saveState";
 
     public ParamBindingHandler<ActivityIntentParamBindingHolder> intentBindingHandler;
     public ParamBindingHandler<ActivityBundleParamBindingHolder> bundleBindingHandler;
@@ -62,8 +62,8 @@ public class ActivityParamInitHandler extends AndroidHandler<ActivityParamHolder
 
     public TypeSpec.Builder createClassType() {
         return TypeSpec.classBuilder(getTargetClassName())
-                .addModifiers(Modifier.FINAL, Modifier.PUBLIC)
-                .addSuperinterface(ClassName.get("com.zf.param.init.activity", "IActivityParamInit"))
+                .addModifiers(Modifier.PUBLIC)
+//                .addSuperinterface(ClassName.get("com.zf.param.init.activity", "IActivityParamInit"))
                 .addJavadoc(getClassTypeDoc());
     }
 
@@ -78,8 +78,7 @@ public class ActivityParamInitHandler extends AndroidHandler<ActivityParamHolder
     public MethodSpec.Builder createInitMethod(List<ActivityParamHolder> holders) {
 
         final MethodSpec.Builder builder = MethodSpec.methodBuilder(PARAM_INIT_INIT_METHOD)
-                .addModifiers(Modifier.PUBLIC)
-                .addAnnotation(Override.class);
+                .addModifiers(Modifier.PUBLIC,Modifier.STATIC);
 
         String target = "target";
         String intent = "intent";
@@ -106,8 +105,7 @@ public class ActivityParamInitHandler extends AndroidHandler<ActivityParamHolder
     public MethodSpec.Builder createInitWithIntentMethod(List<ActivityParamHolder> holders) {
 
         final MethodSpec.Builder builder = MethodSpec.methodBuilder(PARAM_INIT_INIT_METHOD)
-                .addModifiers(Modifier.PUBLIC)
-                .addAnnotation(Override.class);
+                .addModifiers(Modifier.PUBLIC,Modifier.STATIC);
 
         String target = "target";
         String intent = "intent";
@@ -134,8 +132,7 @@ public class ActivityParamInitHandler extends AndroidHandler<ActivityParamHolder
     public MethodSpec.Builder createInitWithBundleMethod(List<ActivityParamHolder> holders) {
 
         final MethodSpec.Builder builder = MethodSpec.methodBuilder(PARAM_INIT_INIT_METHOD)
-                .addModifiers(Modifier.PUBLIC)
-                .addAnnotation(Override.class);
+                .addModifiers(Modifier.PUBLIC,Modifier.STATIC);
 
         String target = "target";
         String savedInstanceState = "savedInstanceState";
@@ -160,8 +157,7 @@ public class ActivityParamInitHandler extends AndroidHandler<ActivityParamHolder
 
     public MethodSpec.Builder createSaveStateMethod(List<ActivityParamHolder> holders) {
         final MethodSpec.Builder builder = MethodSpec.methodBuilder(PARAM_INIT_SAVE_STATE_METHOD)
-                .addModifiers(Modifier.PUBLIC)
-                .addAnnotation(Override.class);
+                .addModifiers(Modifier.PUBLIC,Modifier.STATIC);
 
         String target = "target";
 

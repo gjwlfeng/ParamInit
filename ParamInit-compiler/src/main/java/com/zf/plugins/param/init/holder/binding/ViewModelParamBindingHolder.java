@@ -58,27 +58,27 @@ public abstract class ViewModelParamBindingHolder extends ParamBindingHolder {
 
     public String getGetMethodName() {
         String expectFiledKey = getExpectMethodName();
-        if (expectFiledKey != null && expectFiledKey.trim().length() > 0) {
-            return GET_METHOD_NAME_SUFFIX + Utils.capitalize(expectFiledKey) + GET_EXTRA_METHOD_NAME_SUFFIX;
+        if (expectFiledKey == null || expectFiledKey.trim().length() == 0) {
+            expectFiledKey = getOriginFiledName();
         }
-        return GET_METHOD_NAME_SUFFIX + Utils.capitalize(getOriginFiledName()) + GET_EXTRA_METHOD_NAME_SUFFIX;
+        return GET_METHOD_NAME_SUFFIX + Utils.capitalize(expectFiledKey);
     }
 
 
     public String getContainKeyMethodName() {
         String expectFiledKey = getExpectMethodName();
         if (expectFiledKey != null && expectFiledKey.trim().length() > 0) {
-            return CONTAIN_KEY_METHOD_NAME_PREFIX + Utils.capitalize(expectFiledKey) + GET_EXTRA_METHOD_NAME_SUFFIX;
+            expectFiledKey = getOriginFiledName();
         }
-        return CONTAIN_KEY_METHOD_NAME_PREFIX + Utils.capitalize(getOriginFiledName()) + GET_EXTRA_METHOD_NAME_SUFFIX;
+        return CONTAIN_KEY_METHOD_NAME_PREFIX + Utils.capitalize(expectFiledKey);
     }
 
 
     public String getHasExtraMethodName() {
         String expectFiledKey = getExpectMethodName();
-        if (expectFiledKey != null && expectFiledKey.trim().length() > 0) {
-            return HAS_EXTRA_METHOD_NAME_SUFFIX + Utils.capitalize(expectFiledKey) + GET_EXTRA_METHOD_NAME_SUFFIX;
+        if (expectFiledKey == null || expectFiledKey.trim().length() == 0) {
+            expectFiledKey = getOriginFiledName();
         }
-        return HAS_EXTRA_METHOD_NAME_SUFFIX + Utils.capitalize(getOriginFiledName()) + GET_EXTRA_METHOD_NAME_SUFFIX;
+        return HAS_EXTRA_METHOD_NAME_SUFFIX + Utils.capitalize(expectFiledKey);
     }
 }

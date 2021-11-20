@@ -22,8 +22,8 @@ public class FragmentParamInitHandler extends BaseFragmentParamInitHandler {
         return ClassNameConstant.FRAGMENT;
     }
 
-    public TypeSpec.Builder createClassType() {
-        return super.createClassType()
-                .addSuperinterface(ClassName.get("com.zf.param.init.fragment", "IFragmentParamInit"));
-    }
+//    public TypeSpec.Builder createClassType() {
+//        return super.createClassType()
+//                .addSuperinterface(ClassName.get("com.zf.param.init.fragment", "IFragmentParamInit"));
+//    }
 }

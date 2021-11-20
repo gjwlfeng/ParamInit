@@ -28,6 +28,6 @@ public abstract class ViewModelIntentParamBindingHolder extends ViewModelParamBi
                 methodName= value;
             }
         }
-        return HAS_EXTRA_METHOD_NAME_SUFFIX + Utils.capitalize(methodName)+GET_EXTRA_METHOD_NAME_SUFFIX;
+        return HAS_EXTRA_METHOD_NAME_SUFFIX + Utils.capitalize(methodName);
     }
 }
