@@ -1,6 +1,7 @@
 package com.zf.plugins.param.init.handler.binding;
 
 import com.squareup.javapoet.ClassName;
+import com.squareup.javapoet.CodeBlock;
 import com.zf.plugins.param.init.AnnotationEnv;
 import com.zf.plugins.param.init.ClassNameConstant;
 import com.zf.plugins.param.init.Utils;
@@ -176,5 +177,6 @@ public abstract class ActivityFragmentParamBindingHandler<T> extends ParamBindin
         }
         throw new RuntimeException("Cannot handle type");
     }
+
 
 }

@@ -23,7 +23,7 @@ public abstract class ViewModelIntentParamBindingHolder extends ViewModelParamBi
         ParamInitViewModel paramMethod = getAnnotation(ParamInitViewModel.class);
         String methodName= getOriginFiledName();
         if (paramMethod != null) {
-            String value = paramMethod.method();
+            String value = paramMethod.value();
             if (value.length() > 0) {
                 methodName= value;
             }

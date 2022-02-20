@@ -80,7 +80,7 @@ public class ViewModelBundleParamBindingHandler extends ViewModelParamBindingHan
 
     public CodeBlock getClassTypeDoc() {
         return CodeBlock.builder().
-                add("ViewModel Bundle 参数传参的工具类\n")
+                add("ViewModel Bundle data operation tool class\n")
                 .add("@author zf").build();
     }
 

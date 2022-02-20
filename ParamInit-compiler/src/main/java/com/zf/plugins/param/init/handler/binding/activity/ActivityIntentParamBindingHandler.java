@@ -52,7 +52,7 @@ public class ActivityIntentParamBindingHandler extends ActivityFragmentParamBind
 
     public CodeBlock getClassTypeDoc() {
         return CodeBlock.builder().
-                add("Activity Intent 参数传参的工具类\n")
+                add("Activity Intent data operation tool class\n")
                 .add("@author zf").build();
     }
 

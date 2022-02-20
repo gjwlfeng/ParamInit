@@ -25,7 +25,7 @@ public abstract class ActivityParamHolder extends ParamHolder {
 
     public abstract void onSaveStateMethod(MethodSpec.Builder methodSpec);
 
-    public String getExpectFiledKey() {
+    public String getExpectKey() {
         ParamInitActivity paramKey = getAnnotation(ParamInitActivity.class);
         if (paramKey != null) {
             String value = paramKey.key();
@@ -36,37 +36,15 @@ public abstract class ActivityParamHolder extends ParamHolder {
         return null;
     }
 
-    public String getExpectMethodName() {
+    public String getExpectValue() {
         ParamInitActivity paramKey = getAnnotation(ParamInitActivity.class);
         if (paramKey != null) {
-            String method = paramKey.method();
+            String method = paramKey.value();
             if (method.length() > 0) {
                 return method;
             }
         }
         return null;
-    }
-
-    public String getParamFiledValue() {
-        String expectFiledKey = getExpectFiledKey();
-        if (expectFiledKey != null && expectFiledKey.trim().length() > 0) {
-            return expectFiledKey;
-        }
-        String methodName = getOriginFiledName();
-        return FILED_VALUE_PREFIX + methodName;
-    }
-
-    public String getParamFiledName() {
-        return FILED_NAME_PREFIX + getOriginFiledName().toUpperCase() + FILED_NAME_SUFFIX;
-    }
-
-    public String getPutMethodName() {
-        String expectMethodName = getExpectMethodName();
-        if (expectMethodName != null && expectMethodName.trim().length() > 0) {
-            return PUT_METHOD_NAME_SUFFIX + Utils.capitalize(expectMethodName);
-        }
-        String methodName = getOriginFiledName();
-        return PUT_METHOD_NAME_SUFFIX + Utils.capitalize(methodName);
     }
 
 }

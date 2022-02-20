@@ -31,13 +31,13 @@ public abstract class AndroidHandler<T> extends BaseHandler<T> {
 
     public List<T> getHolders() {
         List<T> paramHolderList = new ArrayList<>();
-        T holder;
+
         for (Element element : itemElement) {
             ParamInitClass paramInitClass = element.getAnnotation(ParamInitClass.class);
             if (paramInitClass != null) {
                 continue;
             }
-            holder = getHolder(element);
+            T holder = getHolder(element);
             paramHolderList.add(holder);
         }
         return paramHolderList;

@@ -1,5 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext {
+        kotlin_version = '1.5.10'
+    }
     repositories {
         google()
         mavenCentral()
@@ -9,6 +12,8 @@ buildscript {
         classpath "com.android.tools.build:gradle:4.2.2"
         classpath "io.github.gjwlfeng:Version-Logging:1.0.8.5-SNAPSHOT"
         classpath "io.github.gjwlfeng:Git-Command:1.0.8.27-SNAPSHOT"
+        classpath "io.github.gjwlfeng:Git-Command:1.0.8.29-SNAPSHOT"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

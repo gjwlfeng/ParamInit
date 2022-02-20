@@ -1,6 +1,7 @@
 package com.zf.plugins.param.init.handler.activity;
 
 import com.squareup.javapoet.ClassName;
+import com.squareup.javapoet.CodeBlock;
 import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.ParameterSpec;
@@ -65,6 +66,12 @@ public class ActivityParamInitHandler extends AndroidHandler<ActivityParamHolder
                 .addModifiers(Modifier.PUBLIC)
 //                .addSuperinterface(ClassName.get("com.zf.param.init.activity", "IActivityParamInit"))
                 .addJavadoc(getClassTypeDoc());
+    }
+
+    public CodeBlock getClassTypeDoc() {
+        return CodeBlock.builder().
+                add("Activity data operation tool class\n")
+                .add("@author zf").build();
     }
 
     public List<FieldSpec> createField(List<ActivityParamHolder> holders) {

@@ -1,5 +1,6 @@
 package com.zf.plugins.param.init.handler.fragment;
 
+import com.squareup.javapoet.CodeBlock;
 import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.ParameterSpec;
@@ -54,6 +55,12 @@ public abstract class BaseFragmentParamInitHandler extends AndroidHandler<Fragme
         return TypeSpec.classBuilder(getTargetClassName())
                 .addModifiers(Modifier.PUBLIC)
                 .addJavadoc(getClassTypeDoc());
+    }
+
+    public CodeBlock getClassTypeDoc() {
+        return CodeBlock.builder().
+                add("Fragment data operation tool class\n")
+                .add("@author zf").build();
     }
 
     public List<FieldSpec> createField(List<FragmentParamHolder> holders) {

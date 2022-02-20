@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'io.github.gjwlfeng.version-logging'
     id 'io.github.gjwlfeng.git-command'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -15,7 +17,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.zf.version.log.manager"
+        applicationId "com.zf.param.init"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
@@ -46,6 +48,19 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+}
+
+dependencies{
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    kapt 'io.github.gjwlfeng:ParamInit-compiler:1.0.5.10-SNAPSHOT'
+    implementation 'io.github.gjwlfeng:ParamInit-lib-x:1.0.4.1-SNAPSHOT'
+    implementation 'io.github.gjwlfeng:ParamInit-lib-view-model:1.0.4.1-SNAPSHOT'
+    implementation 'io.github.gjwlfeng:ParamInit-lib-x:1.0.4.1-SNAPSHOT'
+    implementation 'io.github.gjwlfeng:ParamInit-lib-core:1.0.4.5-SNAPSHOT'
+    implementation 'io.github.gjwlfeng:ParamInit-lib-v4:1.0.5.1-SNAPSHOT'
 }
 
 vLogConfig {

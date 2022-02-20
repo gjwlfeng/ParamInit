@@ -11,7 +11,7 @@ configurations {
 }
 
 dependencies {
-    implementation group: 'io.github.gjwlfeng', name: 'ParamInit-lib-core', version: '1.0.4.1-SNAPSHOT'
+    implementation group: 'io.github.gjwlfeng', name: 'ParamInit-lib-core', version: '1.0.4.5-SNAPSHOT'
     annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
     implementation 'com.google.auto.service:auto-service:1.0-rc6'
     compileOnly group: 'com.google.android', name: 'android', version: '4.1.1.4'
@@ -31,7 +31,7 @@ archivesBaseName = artifactId
 def isSnapshot = true
 
 if (isSnapshot) {
-    def fixVersion = 9
+    def fixVersion = 10
     version(version + ".${fixVersion}-SNAPSHOT")
 }
 

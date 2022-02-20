@@ -80,7 +80,7 @@ public class ViewModelIntentParamBindingHandler extends ViewModelParamBindingHan
 
     public CodeBlock getClassTypeDoc() {
         return CodeBlock.builder().
-                add("ViewModel Intent 参数传参的工具类\n")
+                add("ViewModel Intent data operation tool class\n")
                 .add("@author zf").build();
     }
 

@@ -4,25 +4,15 @@ import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.CodeBlock;
 import com.squareup.javapoet.FieldSpec;
 import com.squareup.javapoet.MethodSpec;
-import com.squareup.javapoet.ParameterSpec;
-import com.squareup.javapoet.ParameterizedTypeName;
-import com.squareup.javapoet.TypeName;
-import com.squareup.javapoet.TypeVariableName;
-import com.zf.param.init.ParamInitFragment;
 import com.zf.plugins.param.init.AnnotationEnv;
 import com.zf.plugins.param.init.CallBack;
 import com.zf.plugins.param.init.ClassNameConstant;
-import com.zf.plugins.param.init.MethodSpecBuilderCallBack;
 import com.zf.plugins.param.init.MethodSpecUtils;
 import com.zf.param.init.ParamInitViewModel;
 import com.zf.plugins.param.init.Utils;
 import com.zf.plugins.param.init.holder.ParamHolder;
 
-import org.checkerframework.checker.units.qual.C;
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.lang.model.element.Element;
 import javax.lang.model.element.Modifier;
@@ -159,7 +149,7 @@ public abstract class ViewModelParamHolder extends ParamHolder {
 //        return true;
 //    }
 
-    public String getExpectFiledKey() {
+    public String getExpectKey() {
         ParamInitViewModel paramKey = getAnnotation(ParamInitViewModel.class);
         if (paramKey != null) {
             String value = paramKey.key();
@@ -170,10 +160,10 @@ public abstract class ViewModelParamHolder extends ParamHolder {
         return null;
     }
 
-    public String getExpectMethodName() {
+    public String getExpectValue() {
         ParamInitViewModel paramKey = getAnnotation(ParamInitViewModel.class);
         if (paramKey != null) {
-            String method = paramKey.method();
+            String method = paramKey.value();
             if (method.length() > 0) {
                 return method;
             }
@@ -181,28 +171,8 @@ public abstract class ViewModelParamHolder extends ParamHolder {
         return null;
     }
 
-    public String getParamFiledName() {
-        return FILED_NAME_PREFIX + getOriginFiledName().toUpperCase() + FILED_NAME_SUFFIX;
-    }
-
-    public String getParamFiledValue() {
-        String expectFiledKey = getExpectFiledKey();
-        if (expectFiledKey != null && expectFiledKey.trim().length() > 0) {
-            return expectFiledKey;
-        }
-        return FILED_VALUE_PREFIX + getOriginFiledName();
-    }
-
-    public String getPutMethodName() {
-        String expectMethodName = getExpectMethodName();
-        if (expectMethodName != null && expectMethodName.trim().length() > 0) {
-            return PUT_METHOD_NAME_SUFFIX + Utils.capitalize(expectMethodName);
-        }
-        return PUT_METHOD_NAME_SUFFIX + Utils.capitalize(getOriginFiledName());
-    }
-
     public String getGetLiveDataParamMethodName() {
-        String expectMethodName = getExpectMethodName();
+        String expectMethodName = getExpectValue();
         if (expectMethodName != null && expectMethodName.trim().length() > 0) {
             return GET_LIVE_DATA_METHOD_NAME_PREFIX + Utils.capitalize(expectMethodName) + GET_LIVE_DATA_METHOD_NAME_SUFFIX;
         }
@@ -210,7 +180,7 @@ public abstract class ViewModelParamHolder extends ParamHolder {
     }
 
     public String getGetInitLiveDataParamMethodName() {
-        String expectMethodName = getExpectMethodName();
+        String expectMethodName = getExpectValue();
         if (expectMethodName != null && expectMethodName.trim().length() > 0) {
             return GET_LIVE_DATA_METHOD_NAME_PREFIX + Utils.capitalize(expectMethodName) + "Init" + GET_LIVE_DATA_METHOD_NAME_SUFFIX;
         }
@@ -218,7 +188,7 @@ public abstract class ViewModelParamHolder extends ParamHolder {
     }
 
     public String getGetParamMethodName() {
-        String expectMethodName = getExpectMethodName();
+        String expectMethodName = getExpectValue();
         if (expectMethodName != null && expectMethodName.trim().length() > 0) {
             return GET_METHOD_NAME_PREFIX + Utils.capitalize(expectMethodName);
         }

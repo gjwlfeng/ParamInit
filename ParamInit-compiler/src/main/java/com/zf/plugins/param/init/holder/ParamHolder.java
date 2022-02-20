@@ -69,12 +69,29 @@ public abstract class ParamHolder {
         return getElement().toString();
     }
 
-    public abstract  String getParamFiledName();
+    public abstract String getExpectKey();
 
-    public abstract String getParamFiledValue();
+    public abstract String getExpectValue();
 
-    public abstract String getExpectFiledKey();
+//    public abstract  String getParamFiledName();
+//
+//    public abstract String getParamFiledValue();
 
-    public abstract String getExpectMethodName();
+    public String getParamFiledValue() {
+        String expectFiledKey = getExpectKey();
+        if (expectFiledKey != null && expectFiledKey.trim().length() > 0) {
+            return expectFiledKey;
+        }
+        String methodName = getOriginFiledName();
+        return FILED_VALUE_PREFIX + methodName;
+    }
+
+    public String getParamFiledName() {
+        String expectMethodName = getExpectValue();
+        if (expectMethodName != null && expectMethodName.trim().length() > 0) {
+            return FILED_NAME_PREFIX + expectMethodName.toUpperCase() + FILED_NAME_SUFFIX;
+        }
+        return FILED_NAME_PREFIX + getOriginFiledName().toUpperCase() + FILED_NAME_SUFFIX;
+    }
 
 }

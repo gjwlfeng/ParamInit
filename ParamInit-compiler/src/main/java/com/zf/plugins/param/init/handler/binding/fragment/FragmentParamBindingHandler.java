@@ -48,7 +48,7 @@ public class FragmentParamBindingHandler extends ActivityFragmentParamBindingHan
 
     public CodeBlock getClassTypeDoc() {
         return CodeBlock.builder().
-                add("Fragment Bundle 参数传参工具类\n")
+                add("Fragment bundle data operation tool class\n")
                 .add("@author zf").build();
     }
 

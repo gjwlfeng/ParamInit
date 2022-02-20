@@ -1,6 +1,7 @@
 package com.zf.plugins.param.init.handler;
 
 import com.squareup.javapoet.ClassName;
+import com.squareup.javapoet.CodeBlock;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeSpec;
 import com.zf.param.init.Constant;
@@ -56,6 +57,12 @@ public abstract class ViewModelHandler extends BaseHandler<ViewModelParamHolder>
                 .addFileComment("Generated code from Param Init. Do not modify!")
                 .build()
                 .writeTo(annotationEnv.mFiler);
+    }
+
+    public CodeBlock getClassTypeDoc() {
+        return CodeBlock.builder().
+                add("ViewModel 传参，持久化的工具类\n")
+                .add("@author zf").build();
     }
 
     public List<ViewModelParamHolder> getHolders() {

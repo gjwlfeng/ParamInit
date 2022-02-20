@@ -13,7 +13,7 @@ public abstract class ActivityIntentParamBindingHolder extends IntentParamBindin
         super(annotationEnv, element, isSupportV4, isAndroidX);
     }
 
-    public String getExpectFiledKey() {
+    public String getExpectKey() {
         ParamInitActivity paramKey = getAnnotation(ParamInitActivity.class);
         if (paramKey != null) {
             String value = paramKey.key();
@@ -24,10 +24,10 @@ public abstract class ActivityIntentParamBindingHolder extends IntentParamBindin
         return null;
     }
 
-    public String getExpectMethodName() {
+    public String getExpectValue() {
         ParamInitActivity paramKey = getAnnotation(ParamInitActivity.class);
         if (paramKey != null) {
-            String method = paramKey.method();
+            String method = paramKey.value();
             if (method.length() > 0) {
                 return method;
             }
@@ -35,21 +35,8 @@ public abstract class ActivityIntentParamBindingHolder extends IntentParamBindin
         return null;
     }
 
-
-    public String getParamFiledValue() {
-        String expectFiledKey = getExpectFiledKey();
-        if (expectFiledKey != null && expectFiledKey.trim().length() > 0) {
-            return expectFiledKey;
-        }
-        return FILED_VALUE_PREFIX + getOriginFiledName();
-    }
-
-    public String getParamFiledName() {
-        return FILED_NAME_PREFIX + getOriginFiledName().toUpperCase() + FILED_NAME_SUFFIX;
-    }
-
     public String getPutMethodName() {
-        String expectMethodName = getExpectMethodName();
+        String expectMethodName = getExpectValue();
         if (expectMethodName == null || expectMethodName.trim().length() == 0) {
             expectMethodName = getOriginFiledName();
         }
@@ -57,7 +44,7 @@ public abstract class ActivityIntentParamBindingHolder extends IntentParamBindin
     }
 
     public String getGetMethodName() {
-        String expectMethodName = getExpectMethodName();
+        String expectMethodName = getExpectValue();
         if (expectMethodName == null || expectMethodName.trim().length() == 0) {
             expectMethodName = getOriginFiledName();
         }
@@ -66,7 +53,7 @@ public abstract class ActivityIntentParamBindingHolder extends IntentParamBindin
 
 
     public String getHasExtraMethodName() {
-        String expectMethodName = getExpectMethodName();
+        String expectMethodName = getExpectValue();
         if (expectMethodName == null || expectMethodName.trim().length() == 0) {
             expectMethodName = getOriginFiledName();
         }

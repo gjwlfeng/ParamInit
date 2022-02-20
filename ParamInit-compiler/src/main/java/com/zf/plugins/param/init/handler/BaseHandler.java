@@ -82,12 +82,12 @@ public abstract class BaseHandler<T> {
     }
 
     public String getTargetClassSimpleName() {
-        return rootElement.getSimpleName().toString().concat(Constant.CLASS_NAME_PREFIX);
+        return rootElement.getSimpleName().toString().concat(Constant.CLASS_NAME_SUFFIX);
     }
 
     public CodeBlock getClassTypeDoc() {
         return CodeBlock.builder().
-                add("参数传参，参数持久化的工具类\n")
+                add("data operation tool class\n")
                 .add("@author zf").build();
     }
 

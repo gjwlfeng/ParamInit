@@ -13,7 +13,7 @@ public abstract class ViewModelParamBindingHolder extends ParamBindingHolder {
         super(annotationEnv, element, isSupportV4, isAndroidX);
     }
 
-    public String getExpectFiledKey() {
+    public String getExpectKey() {
         ParamInitViewModel paramKey = getAnnotation(ParamInitViewModel.class);
         if (paramKey != null) {
             String value = paramKey.key();
@@ -24,10 +24,10 @@ public abstract class ViewModelParamBindingHolder extends ParamBindingHolder {
         return null;
     }
 
-    public String getExpectMethodName() {
+    public String getExpectValue() {
         ParamInitViewModel paramKey = getAnnotation(ParamInitViewModel.class);
         if (paramKey != null) {
-            String method = paramKey.method();
+            String method = paramKey.value();
             if (method.length() > 0) {
                 return method;
             }
@@ -36,20 +36,9 @@ public abstract class ViewModelParamBindingHolder extends ParamBindingHolder {
     }
 
 
-    public String getParamFiledValue() {
-        String expectFiledKey = getExpectFiledKey();
-        if (expectFiledKey != null && expectFiledKey.trim().length() > 0) {
-            return expectFiledKey;
-        }
-        return FILED_VALUE_PREFIX + getOriginFiledName();
-    }
-
-    public String getParamFiledName() {
-        return FILED_NAME_PREFIX + getOriginFiledName().toUpperCase() + FILED_NAME_SUFFIX;
-    }
 
     public String getPutMethodName() {
-        String expectFiledKey = getExpectMethodName();
+        String expectFiledKey = getExpectValue();
         if (expectFiledKey != null && expectFiledKey.trim().length() > 0) {
             return PUT_METHOD_NAME_SUFFIX + Utils.capitalize(expectFiledKey);
         }
@@ -57,7 +46,7 @@ public abstract class ViewModelParamBindingHolder extends ParamBindingHolder {
     }
 
     public String getGetMethodName() {
-        String expectFiledKey = getExpectMethodName();
+        String expectFiledKey = getExpectValue();
         if (expectFiledKey == null || expectFiledKey.trim().length() == 0) {
             expectFiledKey = getOriginFiledName();
         }
@@ -66,7 +55,7 @@ public abstract class ViewModelParamBindingHolder extends ParamBindingHolder {
 
 
     public String getContainKeyMethodName() {
-        String expectFiledKey = getExpectMethodName();
+        String expectFiledKey = getExpectValue();
         if (expectFiledKey != null && expectFiledKey.trim().length() > 0) {
             expectFiledKey = getOriginFiledName();
         }
@@ -75,7 +64,7 @@ public abstract class ViewModelParamBindingHolder extends ParamBindingHolder {
 
 
     public String getHasExtraMethodName() {
-        String expectFiledKey = getExpectMethodName();
+        String expectFiledKey = getExpectValue();
         if (expectFiledKey == null || expectFiledKey.trim().length() == 0) {
             expectFiledKey = getOriginFiledName();
         }

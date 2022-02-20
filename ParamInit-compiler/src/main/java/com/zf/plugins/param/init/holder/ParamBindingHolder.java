@@ -14,7 +14,7 @@ public abstract class ParamBindingHolder extends ParamHolder {
 
     public final static String HAS_EXTRA_METHOD_NAME_SUFFIX = "has";
 //    public final static String GET_EXTRA_METHOD_NAME_SUFFIX = "Extra";
-    public final static String CONTAIN_KEY_METHOD_NAME_PREFIX = "contain";
+    public final static String CONTAIN_KEY_METHOD_NAME_PREFIX = "contains";
 //    public final static String CONTAIN_KEY_METHOD_NAME_SUFFIX = "Extra";
 
     public ParamBindingHolder(AnnotationEnv annotationEnv, Element element, boolean isSupportV4, boolean isAndroidX) {
