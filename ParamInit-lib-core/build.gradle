@@ -9,14 +9,14 @@ dependencies {
     compileOnly group: 'com.google.android', name: 'android', version: '4.1.1.4'
 }
 
-version '1.0.4'
+version '1.0.6'
 group = "io.github.gjwlfeng"
 ext.artifactId = "ParamInit-lib-core"
 archivesBaseName = artifactId
 
 def isSnapshot = true
 if (isSnapshot) {
-    def fixVersion=5
+    def fixVersion=0
     version(version +".${fixVersion}-SNAPSHOT")
 }
 

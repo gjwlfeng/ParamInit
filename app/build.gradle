@@ -85,9 +85,9 @@ vLogConfig {
 
 gitConfig {
     //当前版本名称 ,git commit ,git tag 都会用到
-    versionName "1.1.0"
+    versionName "1.0.6"
     //可选参数。版本号
-    versionCode 1
+//    versionCode 1
     changedLogFile = project.file("logging-git.txt")
     workDirFile = project.rootProject.projectDir
     repositories {

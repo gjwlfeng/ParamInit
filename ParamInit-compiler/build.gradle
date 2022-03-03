@@ -23,7 +23,7 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-version '1.0.5'
+version '1.0.6'
 group = "io.github.gjwlfeng"
 ext.artifactId = "ParamInit-compiler"
 archivesBaseName = artifactId
@@ -31,7 +31,7 @@ archivesBaseName = artifactId
 def isSnapshot = true
 
 if (isSnapshot) {
-    def fixVersion = 10
+    def fixVersion = 0
     version(version + ".${fixVersion}-SNAPSHOT")
 }
 
